@@ -42,16 +42,17 @@ class Sales(models.Model):
     class Meta:
         verbose_name = "Sale"
         verbose_name_plural = "Sales"
-
     def clean(self):
-        if self.product and self.product_count > self.product.quantity:
-            raise ValidationError("Some products do not have sufficient quantity.")
+        if self.product and self.product_count>self.product.quantity:
+            raise  ValidationError("Xatolik")
 
     def save(self, *args, **kwargs):
         self.full_clean()  # Perform validation before saving
-
         if self.product:
             self.product.quantity -= self.product_count
             self.product.save()
 
         super().save(*args, **kwargs)
+
+
+
