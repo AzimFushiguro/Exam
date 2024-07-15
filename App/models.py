@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Company(models.Model):
-    title = models.CharField("Name of company", max_length=255)
+    title = models.CharField("Kompanyaning nomi", max_length=255)
     product_count = models.IntegerField(default=0)
 
     def __str__(self):
@@ -34,6 +34,7 @@ class Sales(models.Model):
     product = models.ForeignKey(Product, null=True, blank=True, on_delete=models.CASCADE)
     product_count = models.IntegerField("Masxulot soni")
     sale_cost = models.IntegerField()
+    # sale_date = models.DateTimeField("Sotilgan Sana", auto_now_add=True)
 
     def __str__(self):
         return self.costumer_name

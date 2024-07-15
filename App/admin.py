@@ -25,7 +25,7 @@ class CompanyAdmin(admin.ModelAdmin):
     list_display = ("id", "title", "product_count")
 
     def has_delete_permission(self, request, obj=None):
-        if obj and obj.product_count == 0:
+        if obj and obj.product_count != 0:
             return False
         return True
 
